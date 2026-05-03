@@ -88,14 +88,14 @@ This type of communication protocol is used if we eant to fetch a single item fr
 REST follows a strict client-initiated request-response model where the client always sends a request and waits for a single response. this makes real-time communication difficult. gRPC's bidirectional streaming allows both client and server to send and receive messages independently and simultaneously over a persistent connection, making it far more suitable for real-time applications like chat, live dashboards, or collaborative tools where low latency and continuous data flow are critical
 
 # 10. What are the implications of the schema-based approach of gRPC, using Protocol Buffers, compared to the more flexible, schema-less nature of JSON in REST API payloads? 
-- Protobuf (gRPC)
+1. protobuf (gRPC)
 - in protobuf (grpc) all fields and types are strictly defined in.proto files, all the meanig type mismatches and missing fields are caught at compile time, reducing runtime errors significantly
 - binary serialization results in smaller payload sized and faster serialization/deserialization compared to json
 - protobuf automatically generates client and server code from .proto files, reducing boilerplate and ensuring consistency across service
 - protobuf supports backward-compatible changes (adding new fields without breaking old clients) through field numbering
 - any schema change must be synchronized across all services that share the .proto file
 
-- JSON(REST)
+2. JSON(REST)
 - No strict schema required,  fields can be added, removed, or changed freely without breaking existing code, making it easier to iterate quickly
 - text-based format makes it easy to inspect, debug, and test payloads directly using tools like Postman or browser DevTools.
 - natively supported by all browsers, languages, and platforms without additional tooling.
